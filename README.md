@@ -76,3 +76,25 @@ const saleOrderItemSchema = Joi.object({
   quantity: Joi.number().integer().required(),
   price: Joi.number().precision(2).required(),
 })
+
+Pruebas
+Ejecutar las pruebas unitarias con Jest y Supertest:
+
+sh
+Copiar código
+npm test
+Migraciones
+Ejecutar migraciones de Sequelize:
+
+sh
+Copiar código
+npx sequelize-cli db:migrate
+Interfaz de Usuario
+La interfaz de usuario está implementada con React y Axios para consumir la API. La aplicación lista todos los items de órdenes de venta.
+
+Postman Collection
+El proyecto incluye una colección de Postman para interactuar con la API. Importa el archivo collection.json en Postman para probar los endpoints.
+
+GitHub Actions
+El proyecto utiliza GitHub Actions para CI/CD. La configuración se encuentra en .github/workflows/ci.yml y ejecuta pruebas, verificaciones de estilo y construcción del proyecto en cada push o pull request a la rama main.
+
