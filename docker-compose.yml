@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sale_order_db
+    ports:
+      - '5432:5432'
+
+  api:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+      DB_DATABASE: sale_order_db
+      DB_HOST: db
+      DB_DIALECT: postgres
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+    command: npm run dev
