@@ -1,27 +1,34 @@
 version: '3.8'
 
 services:
+  frontend:
+    build: .
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+
+  api:
+    image: your-api-image
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=user
+      - DB_PASSWORD=password
+      - DB_NAME=database
+    depends_on:
+      - db
+
   db:
     image: postgres:13
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: sale_order_db
-    ports:
-      - '5432:5432'
-
-  api:
-    build: .
-    ports:
-      - '3000:3000'
-    environment:
-      DB_USERNAME: postgres
-      DB_PASSWORD: password
-      DB_DATABASE: sale_order_db
-      DB_HOST: db
-      DB_DIALECT: postgres
-    depends_on:
-      - db
+      POSTGRES_DB: database
     volumes:
-      - .:/usr/src/app
-    command: npm run dev
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
+
