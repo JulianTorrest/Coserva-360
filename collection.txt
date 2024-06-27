@@ -1,0 +1,69 @@
+Paso 1: Instalar Postman
+Asegúrate de tener Postman instalado. Puedes descargarlo desde aquí.
+
+Paso 2: Crear una Nueva Colección
+Abre Postman.
+Haz clic en el botón New en la esquina superior izquierda y selecciona Collection.
+Nombra la colección Sale Order API.
+Paso 3: Añadir Requests a la Colección
+Añade las siguientes solicitudes (requests) a la colección:
+
+1. Obtener Todos los Sale Order Items
+Método: GET
+URL: http://localhost:3000/api/sale-order-items
+Nombre del Request: Get All Sale Order Items
+Descripción: Obtener todos los items de orden de venta.
+2. Crear un Nuevo Sale Order Item
+Método: POST
+URL: http://localhost:3000/api/sale-order-items
+Nombre del Request: Create Sale Order Item
+Descripción: Crear un nuevo item de orden de venta.
+Body:
+Selecciona raw y JSON.
+Ejemplo de cuerpo (body):
+json
+Copiar código
+{
+  "productName": "Test Product",
+  "quantity": 10,
+  "price": 99.99
+}
+3. Obtener un Sale Order Item por ID
+Método: GET
+URL: http://localhost:3000/api/sale-order-items/:id
+Nombre del Request: Get Sale Order Item by ID
+Descripción: Obtener un item de orden de venta por ID.
+Params:
+Key: id
+Value: 1 (ejemplo)
+4. Actualizar un Sale Order Item por ID
+Método: PUT
+URL: http://localhost:3000/api/sale-order-items/:id
+Nombre del Request: Update Sale Order Item by ID
+Descripción: Actualizar un item de orden de venta por ID.
+Params:
+Key: id
+Value: 1 (ejemplo)
+Body:
+Selecciona raw y JSON.
+Ejemplo de cuerpo (body):
+json
+Copiar código
+{
+  "productName": "Updated Product",
+  "quantity": 20,
+  "price": 199.99
+}
+5. Eliminar un Sale Order Item por ID
+Método: DELETE
+URL: http://localhost:3000/api/sale-order-items/:id
+Nombre del Request: Delete Sale Order Item by ID
+Descripción: Eliminar un item de orden de venta por ID.
+Params:
+Key: id
+Value: 1 (ejemplo)
+Paso 4: Exportar la Colección
+Haz clic en los tres puntos al lado del nombre de la colección Sale Order API.
+Selecciona Export.
+Elige Collection v2.1 (recommended) y haz clic en Export.
+Guarda el archivo como collection.json en la ubicación deseada.
