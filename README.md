@@ -60,6 +60,7 @@ POST /api/sale-order-items - Crear un nuevo item de orden de venta.
 GET /api/sale-order-items/:id - Obtener un item de orden de venta por ID.
 PUT /api/sale-order-items/:id - Actualizar un item de orden de venta por ID.
 DELETE /api/sale-order-items/:id - Eliminar un item de orden de venta por ID.
+
 Validaciones
 Utilizamos Joi para validar los datos de entrada en las rutas de la API. Ejemplo de esquema de validación:
 
