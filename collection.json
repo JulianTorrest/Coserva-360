@@ -1,0 +1,135 @@
+{
+  "info": {
+    "name": "Sale Order API",
+    "_postman_id": "your-postman-id",
+    "description": "Collection for Sale Order API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Sale Order Items",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/sale-order-items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "sale-order-items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Sale Order Item",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"productName\": \"Test Product\",\n    \"quantity\": 10,\n    \"price\": 99.99\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/sale-order-items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "sale-order-items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Sale Order Item by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/sale-order-items/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "sale-order-items",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Sale Order Item by ID",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"productName\": \"Updated Product\",\n    \"quantity\": 20,\n    \"price\": 199.99\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/sale-order-items/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "sale-order-items",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Sale Order Item by ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/sale-order-items/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "sale-order-items",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
