@@ -2,9 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:
@@ -14,24 +13,40 @@ jobs:
       postgres:
         image: postgres:13
         env:
-          POSTGRES_USER: postgres
+          POSTGRES_USER: user
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: sale_order_db
+          POSTGRES_DB: database
         ports:
           - 5432:5432
+        options: >-
+          --health-cmd="pg_isready"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: npm install
-      - run: npm run build
-      - run: npm test
-        env:
-          DB_USERNAME: postgres
-          DB_PASSWORD: password
-          DB_DATABASE: sale_order_db
-          DB_HOST: localhost
-          DB_DIALECT: postgres
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Docker build
+        run: docker build -t your-docker-image .
+
+      - name: Docker Compose
+        run: docker-compose up --build -d
